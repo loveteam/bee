@@ -1,16 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
-var Dao = require("../../lib/core/dao")
-var dao = new Dao()
+var Post = require("../../lib/service/post")
+var post = new Post()
 
 router.get('/', function(req, res, next) {
     res.render('admin/post');
 });
 
 router.post('/addPost',function(req,res){
-    dao.save({d:"1"},function(err,newOb){
-        console.log(err)
+    post.save({name:req.body.name},function(err,newOb){
         res.render('admin/index');
     })
 });
