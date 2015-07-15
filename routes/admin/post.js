@@ -13,10 +13,16 @@ router.post('/', function(req, res, next) {
 });
 
 router.post('/addPost',function(req,res){
+
     post.save({name:req.body.name},function(err,newOb){
         res.render('admin/index');
     });
 });
+
+router.post('/updatePost',function(req,res){
+
+});
+
 
 module.exports = router;
 
