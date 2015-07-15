@@ -3,11 +3,15 @@ html
   head
     meta(charset="utf-8")
     link(rel='stylesheet', tpye="text/css",href='/dist/semantic.min.css')
+
     script(src="/dist/jquery.min.js")
     script(src="/dist/semantic.min.js")
     script(src="/dist/angular.min.js")
 
-    script(src="/js/indexMenu.js")
+    script(src="/module_js/indexMenu.js")
+
+    script(src="/js/init.js")
+    script(src="/js/menu.js")
 
   body
     div.ui.container(data-ng-app='indexMenu', data-ng-controller='menuController')
@@ -15,7 +19,7 @@ html
 
           a.active.item(data-ng-click="menuClick('Home')") Home
           a.item(data-ng-click="menuClick('Article')") Article
-          a.item(data-ng-click="menuClick('Post')") Post
+          a.item(data-ng-click="menuClick('post')") Post
           a.item(data-ng-click="menuClick('Comment')") Comment
           a.item(data-ng-click="menuClick('Theme')") Theme
           a.item(data-ng-click="menuClick('Configure')") Configure
@@ -23,4 +27,4 @@ html
             div.ui.transparent.icon.input
               input(type='text',placeholder="Search...")
               i.search.link.icon
-        div.ui.bottom.attached.segment(data-ng-model="activeMenuContent")
+        div.ui.bottom.attached.segment(data-ng-bind="activeMenuContent")
