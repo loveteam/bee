@@ -1,3 +1,9 @@
 {
-  "db":"nedb"
+  "db": "nedb",
+
+  "nedb": {
+    "dbpath": "/db"
+  }
+
+
 }
