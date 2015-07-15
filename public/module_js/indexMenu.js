@@ -1,8 +1,8 @@
 /**
  * Created by Wangyao on 2015/7/14.
  */
-var indexMenuApp = angular.module("indexMenu", []);
-indexMenuApp.controller("menuController", function($scope, $http) {
+var indexMenuApp = angular.module("indexMenu", ['ngSanitize']);
+indexMenuApp.controller("menuController", function($scope, $sce, $http) {
     $scope.menus = [
         {"name":"Home","url":""},
         {"name":"Article","url":""},
@@ -17,6 +17,7 @@ indexMenuApp.controller("menuController", function($scope, $http) {
         $scope.activeMenuContent = url;
         $http.post(url, {}).success(function(response) {
             $scope.activeMenuContent = response;
+            $scope.trustHtmlMenuContent = $sce.trustAsHtml(response);
             //$scope.menu[name] = response;
         });
     };

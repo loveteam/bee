@@ -6,7 +6,8 @@ html
 
     script(src="/dist/jquery.min.js")
     script(src="/dist/semantic.min.js")
-    script(src="/dist/angular.min.js")
+    script(src="/dist/angularjs/angular.min.js")
+    script(src="/dist/angularjs/sanitize.js")
 
     script(src="/module_js/indexMenu.js")
 
@@ -27,4 +28,4 @@ html
             div.ui.transparent.icon.input
               input(type='text',placeholder="Search...")
               i.search.link.icon
-        div.ui.bottom.attached.segment(data-ng-bind="activeMenuContent")
+        div.ui.bottom.attached.segment(data-ng-bind-html="trustHtmlMenuContent")
