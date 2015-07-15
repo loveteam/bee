@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-var dao =new require("../../lib/core/dao")
+var Dao = require("../../lib/core/dao")
+var dao = new Dao()
 
 router.get('/', function(req, res, next) {
     res.render('admin/post');
