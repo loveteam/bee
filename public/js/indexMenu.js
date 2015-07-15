@@ -10,6 +10,8 @@ indexMenuApp.controller("menuController", function($scope, $http) {
         {"name":"Comment","url":""},
         {"name":"Theme","url":""},
         {"name":"Configure","url":""}];
+
+
     $scope.menuClick = function(name) {
         var url = "/" + name;
         $scope.activeMenuContent = url;
@@ -18,4 +20,6 @@ indexMenuApp.controller("menuController", function($scope, $http) {
             //$scope.menu[name] = response;
         });
     };
+
+
 });
