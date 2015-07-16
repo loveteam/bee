@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-    res.render('admin/post');
+    res.render('admin/register');
 });
 
 router.post('/addPost',function(req,res){

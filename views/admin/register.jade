@@ -1,0 +1,23 @@
+//
+   Created by Guangshan on 2015/7/16.
+
+form.ui.form(action='/post/register',method="POST",data-ng-controller="registerController")
+   h4.ui.dividing.header 注册新用户
+   div.field
+      label 输入用户名
+      div.ui.icon.input
+         input(type="text", name="username", data-ng-model="formData.username", placeholder="用户名")
+         i.icon.user
+      label 输入密码
+      div.ui.icon.input
+         input(type="text", name="password", data-ng-model="formData.password", placeholder="密码")
+         i.icon.lock
+      label 确认密码
+      div.ui.icon.input
+         input(type="text", name="confirm" placeholder="确认密码")
+         i.icon.lock
+   div.field
+      div.ui.checkbox
+         input(name="agreement",type="checkbox")
+         label 我同意该协议
+   div.ui.submit.button(data-ng-click="submit()") 注册
