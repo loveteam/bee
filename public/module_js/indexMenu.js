@@ -3,7 +3,7 @@
  */
 var indexMenuApp = angular.module("indexMenu", ['ngSanitize']);
 
-indexMenuApp.controller("menuController", function($scope, $sce, $http) {
+indexMenuApp.controller("menuController", function($scope, $sce, $http, $compile) {
     $scope.menus = [
         {"name":"Home","url":""},
         {"name":"Article","url":""},
@@ -18,8 +18,10 @@ indexMenuApp.controller("menuController", function($scope, $sce, $http) {
         $scope.activeMenuContent = url;
         $http.post(url, {}).success(function(response) {
             $scope.activeMenuContent = response;
-            $scope.trustHtmlMenuContent = $sce.trustAsHtml(response);
-            //$scope.menu[name] = response;
+            var trustHtmlMenuContent = $compile(angular.element(response))($scope);
+            angular.element("#content").append(trustHtmlMenuContent);
+            //$scope.trustHtmlMenuContent = $compile($sce.trustAsHtml(response))($scope);
+            //$sceope.menu[name] = response;
         });
     };
 

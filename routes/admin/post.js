@@ -19,6 +19,13 @@ router.post('/addPost',function(req,res){
     });
 });
 
+router.post('/register',function(req,res){
+
+    post.save({username:req.body.username, password:req.body.password},function(err,newOb){
+        res.render('admin/index');
+    });
+});
+
 router.post('/updatePost',function(req,res){
 
 });
